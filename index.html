@@ -1,0 +1,606 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dr Paul CL Chan (H.C) — Personal Coaching &amp; Mentorship</title>
+<meta name="description" content="One-to-one coaching with Dr Paul CL Chan (H.C). A confidential conversation for whenever life, career, relationships or business feel like too much to carry alone." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Manrope:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --paper:#faf6ee;
+    --paper-dim:#f1ebdb;
+    --ink:#182a21;
+    --ink-soft:#56655c;
+    --amber:#bd8a3f;
+    --amber-light:#dab174;
+    --line:rgba(24,42,33,.16);
+    --line-soft:rgba(24,42,33,.08);
+    --font-display:"Newsreader", serif;
+    --font-body:"Manrope", sans-serif;
+    --font-mono:"Space Mono", monospace;
+    --container:1120px;
+    --section-pad:clamp(64px, 9vw, 128px);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important;}
+  }
+  body{
+    font-family:var(--font-body);
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%; display:block;}
+  a{color:inherit; text-decoration:none;}
+  button{font-family:inherit; cursor:pointer; background:none; border:none;}
+  .container{max-width:var(--container); margin:0 auto; padding:0 26px;}
+  @media (max-width:480px){ .container{ padding:0 28px; } }
+  h1,h2,h3{font-family:var(--font-display); font-weight:500; letter-spacing:-0.01em; color:var(--ink);}
+  .eyebrow{
+    font-family:var(--font-mono);
+    font-size:.7rem;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--amber);
+    font-weight:400;
+  }
+  .eyebrow.on-dark{ color:var(--amber-light); }
+  :focus-visible{ outline:2px solid var(--amber); outline-offset:3px; }
+
+  /* Buttons — pill style */
+  .btn{
+    display:inline-flex; align-items:center; gap:9px;
+    font-family:var(--font-body); font-weight:600; font-size:.92rem;
+    padding:14px 30px; border-radius:999px; border:1px solid transparent;
+    transition:transform .15s ease, background .15s ease, color .15s ease, border-color .15s ease;
+  }
+  .btn--primary{ background:var(--ink); color:var(--paper); }
+  .btn--primary:hover{ background:var(--amber); color:var(--ink); transform:translateY(-1px); }
+  .btn--outline{ border-color:var(--ink); color:var(--ink); }
+  .btn--outline:hover{ background:var(--ink); color:var(--paper); }
+  .btn--amber{ background:var(--amber); color:var(--ink); }
+  .btn--amber:hover{ background:var(--amber-light); transform:translateY(-1px); }
+  .btn--on-dark{ border-color:rgba(250,246,238,.5); color:var(--paper); }
+  .btn--on-dark:hover{ background:var(--paper); color:var(--ink); }
+  .btn--small{ padding:9px 20px; font-size:.82rem; }
+  .link-arrow{
+    display:inline-flex; align-items:center; gap:6px;
+    font-family:var(--font-mono); font-size:.8rem; letter-spacing:.03em;
+    color:var(--ink); border-bottom:1px solid var(--line);
+    padding-bottom:2px; transition:border-color .2s ease, color .2s ease;
+  }
+  .link-arrow:hover{ color:var(--amber); border-color:var(--amber); }
+
+  /* Header */
+  .site-header{
+    position:sticky; top:0; z-index:40;
+    background:rgba(250,246,238,.9);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line-soft);
+  }
+  .site-header__inner{ display:flex; align-items:center; justify-content:space-between; height:78px; }
+  .site-header__mark{ font-family:var(--font-display); font-size:1.1rem; color:var(--ink); }
+  .site-header__mark span{ color:var(--amber); font-style:italic; font-size:.9em; }
+  .site-header__nav{ display:flex; align-items:center; gap:22px; }
+  .site-header__nav .link-arrow{ display:none; }
+  @media (min-width:640px){ .site-header__nav .link-arrow{ display:inline-flex; } }
+
+  /* Hero — minimal editorial, thin horizon line */
+  .hero{
+    position:relative;
+    min-height:88vh;
+    display:flex; align-items:center;
+    overflow:hidden;
+    background:var(--paper);
+  }
+  .hero__ring{
+    position:absolute; left:78%; top:20%;
+    width:130px; height:130px; border-radius:50%;
+    border:1px solid var(--amber-light);
+    opacity:.65;
+    animation:ringPulse 7s ease-in-out infinite;
+  }
+  @keyframes ringPulse{ 0%,100%{ opacity:.4; transform:scale(1);} 50%{ opacity:.75; transform:scale(1.06);} }
+  .hero__waves{ position:absolute; left:0; right:0; bottom:14%; height:140px; z-index:1; pointer-events:none; }
+  .hero__wave-svg{ position:absolute; bottom:0; left:0; width:200%; height:100%; }
+  .wave-a{ animation:driftLine 26s linear infinite; opacity:.5; }
+  .wave-b{ animation:driftLine 38s linear infinite reverse; opacity:.85; }
+  @keyframes driftLine{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce){ .hero__ring, .wave-a, .wave-b{ animation:none; } }
+  .hero__content{ position:relative; z-index:2; width:100%; padding:96px 0; }
+  .hero__inner{ max-width:660px; }
+  .hero__eyebrow{ margin-bottom:20px; }
+  .hero__headline{
+    font-size:clamp(2.1rem, 5.8vw, 3.6rem);
+    line-height:1.16;
+    color:var(--ink);
+    margin-bottom:24px;
+  }
+  .hero__sub{
+    font-size:1.05rem; line-height:1.75;
+    color:var(--ink-soft);
+    max-width:520px;
+    margin-bottom:36px;
+  }
+  .hero__actions{ display:flex; flex-wrap:wrap; gap:14px; }
+  @media (max-width:480px){
+    .hero__content{ padding:76px 0; }
+    .hero__headline{ font-size:clamp(1.9rem, 8vw, 2.4rem); }
+  }
+
+  /* Welcome */
+  .welcome{ padding:var(--section-pad) 0 calc(var(--section-pad) * .55); border-top:1px solid var(--line-soft); }
+  .welcome__inner{ max-width:680px; }
+  .welcome__title{ font-size:clamp(1.55rem,2.8vw,2.1rem); line-height:1.4; margin:16px 0 24px; font-style:italic; }
+  .welcome__text{ color:var(--ink-soft); font-size:1.05rem; line-height:1.85; margin-bottom:18px; }
+  .welcome__signature{ font-family:var(--font-display); font-style:italic; color:var(--amber); margin-top:10px; }
+
+  /* Services — editorial list, not cards */
+  .services{ padding:var(--section-pad) 0; border-top:1px solid var(--line-soft); }
+  .services__title{ font-size:clamp(1.6rem,2.8vw,2.2rem); line-height:1.35; max-width:660px; margin:16px 0 16px; }
+  .services__intro{ color:var(--ink-soft); max-width:600px; margin-bottom:44px; line-height:1.75; }
+  .services__list{ border-top:1px solid var(--line); }
+
+  details.service-row{ border-bottom:1px solid var(--line); }
+  details.service-row > summary{
+    list-style:none;
+    cursor:pointer;
+    display:grid;
+    grid-template-columns:56px 1fr 28px;
+    align-items:start;
+    gap:18px;
+    padding:26px 4px;
+    -webkit-tap-highlight-color:transparent;
+    transition:background .2s ease;
+  }
+  details.service-row > summary:hover{ background:var(--paper-dim); }
+  details.service-row > summary::-webkit-details-marker{ display:none; }
+  details.service-row > summary::marker{ content:""; }
+  .service-row__num{ font-family:var(--font-mono); font-size:.78rem; color:var(--amber); padding-top:6px; }
+  .service-row__title{ font-size:1.25rem; margin-bottom:6px; line-height:1.35; }
+  .service-row__teaser{ color:var(--ink-soft); font-size:.92rem; font-style:italic; }
+  .service-row__toggle{
+    font-family:var(--font-mono); font-size:1.4rem; color:var(--amber);
+    line-height:1; transition:transform .25s ease; text-align:right;
+  }
+  details.service-row[open] .service-row__toggle{ transform:rotate(45deg); }
+  .service-row__desc{ padding:0 4px 28px 74px; }
+  .service-row__desc p{ color:var(--ink-soft); font-size:.95rem; line-height:1.8; max-width:600px; }
+  @media (max-width:560px){
+    details.service-row > summary{ grid-template-columns:34px 1fr 24px; gap:12px; }
+    .service-row__desc{ padding-left:46px; }
+  }
+
+  /* Story */
+  .story{ padding:var(--section-pad) 0; border-top:1px solid var(--line-soft); }
+  .story__inner{ display:grid; grid-template-columns:280px 1fr; gap:60px; align-items:start; }
+  .story__portrait-frame{
+    aspect-ratio:4/5;
+    background:var(--paper-dim);
+    border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center;
+    filter:grayscale(.15);
+    overflow:hidden;
+  }
+  .story__portrait-frame img{ width:100%; height:100%; object-fit:cover; }
+  .story__portrait-placeholder{ font-family:var(--font-mono); font-size:.72rem; color:var(--ink-soft); text-align:center; padding:0 20px; }
+  .story__location{ font-family:var(--font-mono); font-size:.7rem; letter-spacing:.05em; text-transform:uppercase; color:var(--ink-soft); margin-top:14px; }
+  .story__title{ font-size:clamp(1.6rem,2.8vw,2.2rem); line-height:1.4; margin:16px 0 26px; max-width:580px; font-style:italic; }
+  .story__paragraph{ color:var(--ink-soft); line-height:1.85; margin-bottom:20px; max-width:600px; }
+  .story__email{ display:inline-block; margin-top:8px; font-family:var(--font-mono); font-size:.82rem; color:var(--ink); border-bottom:1px solid var(--line); padding-bottom:2px; }
+  .story__email:hover{ color:var(--amber); border-color:var(--amber); }
+
+  details.creds{ border-top:1px solid var(--line); margin-top:52px; }
+  details.creds > summary{
+    list-style:none; cursor:pointer; width:100%;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:20px 4px;
+    font-family:var(--font-mono); font-size:.76rem; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--ink);
+    -webkit-tap-highlight-color:transparent;
+  }
+  details.creds > summary::-webkit-details-marker{ display:none; }
+  details.creds > summary::marker{ content:""; }
+  .creds__toggle-icon{ font-size:1.15rem; color:var(--amber); transition:transform .25s ease; }
+  details.creds[open] .creds__toggle-icon{ transform:rotate(45deg); }
+  .creds__list{ list-style:none; padding-bottom:24px; }
+  .creds__item{
+    font-family:var(--font-mono); font-size:.78rem; color:var(--ink-soft);
+    padding:10px 4px; border-top:1px solid var(--line-soft);
+  }
+
+  /* Approach — the one dark block for contrast */
+  .approach{ background:var(--ink); color:var(--paper); padding:var(--section-pad) 0; }
+  .approach__title{ color:var(--paper); font-size:clamp(1.55rem,2.8vw,2.2rem); line-height:1.4; margin:16px 0 22px; max-width:620px; font-style:italic; }
+  .approach__text{ color:rgba(250,246,238,.78); max-width:600px; line-height:1.8; }
+  .approach__note{
+    margin-top:30px; padding:18px 22px; border:1px solid rgba(250,246,238,.22);
+    font-size:.85rem; color:rgba(250,246,238,.72); max-width:600px; line-height:1.75;
+  }
+
+  /* Courses callout */
+  .courses{ background:var(--paper-dim); padding:var(--section-pad) 0; border-top:1px solid var(--line-soft); }
+  .courses__inner{ display:grid; grid-template-columns:1fr auto; gap:36px; align-items:center; }
+  .courses__title{ font-size:clamp(1.5rem,2.6vw,2rem); line-height:1.35; margin:14px 0 16px; max-width:560px; }
+  .courses__text{ color:var(--ink-soft); line-height:1.75; max-width:540px; margin-bottom:6px; }
+  .courses__meta{ font-family:var(--font-mono); font-size:.72rem; color:var(--ink-soft); margin-top:14px; letter-spacing:.02em; }
+  @media (max-width:760px){
+    .courses__inner{ grid-template-columns:1fr; }
+  }
+
+  /* Testimonial */
+  .testimonial{ padding:var(--section-pad) 0; border-top:1px solid var(--line-soft); }
+  .testimonial__inner{ max-width:720px; }
+  .testimonial__quote{ font-family:var(--font-display); font-style:italic; font-size:clamp(1.2rem,2.2vw,1.6rem); line-height:1.55; color:var(--ink); margin-bottom:20px; }
+  .testimonial__attribution{ font-family:var(--font-mono); font-size:.78rem; color:var(--ink-soft); }
+  .testimonial__note{ font-family:var(--font-mono); font-size:.68rem; color:var(--amber); margin-top:10px; }
+
+  /* Booking */
+  .booking{ background:var(--paper-dim); padding:var(--section-pad) 0; border-top:1px solid var(--line-soft); }
+  .booking__inner{ display:grid; grid-template-columns:360px 1fr; gap:52px; align-items:start; }
+  .booking__title{ font-size:clamp(1.6rem,2.8vw,2.2rem); margin:16px 0 18px; font-style:italic; }
+  .booking__text{ color:var(--ink-soft); line-height:1.8; margin-bottom:16px; max-width:370px; }
+  .booking__confidential{
+    font-size:.85rem; color:var(--ink); border-left:2px solid var(--amber);
+    padding-left:14px; margin:22px 0 26px; line-height:1.65; max-width:370px;
+  }
+  .booking__email-fallback{ font-family:var(--font-mono); font-size:.78rem; color:var(--ink); border-bottom:1px solid var(--line); padding-bottom:2px; }
+  .booking__email-fallback:hover{ color:var(--amber); border-color:var(--amber); }
+  .booking__widget-wrap{ background:var(--paper); border:1px solid var(--line); padding:8px; }
+
+  /* Footer */
+  .site-footer{ background:var(--ink); color:var(--paper); padding:56px 0 28px; }
+  .site-footer__inner{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:20px; padding-bottom:30px; border-bottom:1px solid rgba(250,246,238,.15); margin-bottom:20px; }
+  .site-footer__name{ font-family:var(--font-display); font-size:1.2rem; font-style:italic; }
+  .site-footer__name span{ color:var(--amber-light); }
+  .site-footer__contact{ display:flex; flex-direction:column; gap:6px; align-items:flex-end; font-size:.86rem; color:rgba(250,246,238,.85); }
+  .site-footer__legal{ font-size:.72rem; color:rgba(250,246,238,.45); }
+
+  @media (max-width:900px){
+    .story__inner{ grid-template-columns:1fr; }
+    .story__portrait-frame{ max-width:260px; }
+    .booking__inner{ grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a href="#hero" class="site-header__mark">Dr Paul CL Chan <span>(H.C)</span></a>
+    <div class="site-header__nav">
+      <a href="#courses" class="link-arrow">Explore Courses →</a>
+      <a href="#booking" class="btn btn--outline btn--small">Schedule a Call</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section id="hero" class="hero">
+    <div class="hero__ring" aria-hidden="true"></div>
+    <div class="hero__waves" aria-hidden="true">
+      <svg class="hero__wave-svg wave-b" viewBox="0 0 2400 140" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,90 C200,60 400,120 600,90 C800,60 1000,120 1200,90 C1400,60 1600,120 1800,90 C2000,60 2200,120 2400,90" fill="none" stroke="#bd8a3f" stroke-width="1.5"/>
+        <path d="M2400,90 C2600,60 2800,120 3000,90 C3200,60 3400,120 3600,90 C3800,60 4000,120 4200,90 C4400,60 4600,120 4800,90" fill="none" stroke="#bd8a3f" stroke-width="1.5" transform="translate(-2400,0)"/>
+      </svg>
+      <svg class="hero__wave-svg wave-a" viewBox="0 0 2400 140" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,110 C250,85 450,130 700,105 C950,80 1150,125 1400,105 C1650,80 1850,130 2100,105 C2250,90 2350,110 2400,105" fill="none" stroke="#18291f" stroke-width="1"/>
+        <path d="M2400,105 C2650,80 2850,125 3100,105 C3350,80 3550,130 3800,105 C4050,80 4250,130 4500,105 C4650,90 4750,110 4800,105" fill="none" stroke="#18291f" stroke-width="1" transform="translate(-2400,0)"/>
+      </svg>
+    </div>
+    <div class="container hero__content">
+      <div class="hero__inner">
+        <p class="eyebrow hero__eyebrow">A confidential conversation, whenever you need one</p>
+        <h1 class="hero__headline">Whatever you're carrying, you don't have to carry it alone.</h1>
+        <p class="hero__sub">
+          I'm Dr Paul CL Chan. For more than thirty years, I've listened to people who felt torn, stuck, or quietly overwhelmed in their careers, relationships, businesses, or within themselves, and helped them find clarity again. If this feels familiar, I'm here to talk.
+        </p>
+        <div class="hero__actions">
+          <a href="#booking" class="btn btn--primary">Schedule a Confidential Call</a>
+          <a href="#services" class="btn btn--outline">See How I Can Help</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WELCOME -->
+  <section class="welcome">
+    <div class="container welcome__inner">
+      <p class="eyebrow">Before anything else</p>
+      <h2 class="welcome__title">You don't need to have it all figured out before you speak to me.</h2>
+      <p class="welcome__text">
+        Most people who contact me aren't looking for another lecture or a list of things to fix. They want someone who will truly listen and help them find their own way forward, at a pace that suits them.
+      </p>
+      <p class="welcome__text">
+        That's what a session with me offers: a private, unhurried conversation. It's not a sales call or a pitch. It's simply a space to be heard, with guidance based on thirty years of helping people through similar challenges.
+      </p>
+      <p class="welcome__signature">— Dr Paul</p>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="services">
+    <div class="container">
+      <p class="eyebrow">If any of this feels familiar</p>
+      <h2 class="services__title">Here is some of what we might work through together.</h2>
+      <p class="services__intro">
+        Tap on any of these to read more. Every conversation is unique. This list is just to give you an idea of what we can explore together, whenever you're ready.
+      </p>
+
+      <div class="services__list">
+
+        <details class="service-row">
+          <summary>
+            <span class="service-row__num">01</span>
+            <div>
+              <h3 class="service-row__title">When you're torn between two goals</h3>
+              <p class="service-row__teaser">That tug-of-war in your mind, quietly draining you.</p>
+            </div>
+            <span class="service-row__toggle">+</span>
+          </summary>
+          <div class="service-row__desc">
+            <p>We'll use a time-tested way of thinking through problems, and look at how your mind gives meaning to each choice. The goal isn't to push you toward one side, but to help you see which path truly fits you, not just the one that seems louder.</p>
+          </div>
+        </details>
+
+        <details class="service-row">
+          <summary>
+            <span class="service-row__num">02</span>
+            <div>
+              <h3 class="service-row__title">Setting goals you actually keep</h3>
+              <p class="service-row__teaser">Not another list that quietly fizzles out.</p>
+            </div>
+            <span class="service-row__toggle">+</span>
+          </summary>
+          <div class="service-row__desc">
+            <p>Instead of focusing on willpower, we'll look at how people who have already reached your goal think, decide, and act. Then we'll build your own process for following through, so your goal stays strong even on a busy Tuesday.</p>
+          </div>
+        </details>
+
+        <details class="service-row">
+          <summary>
+            <span class="service-row__num">03</span>
+            <div>
+              <h3 class="service-row__title">Finding your personal power again</h3>
+              <p class="service-row__teaser">The version of you that isn't waiting for permission.</p>
+            </div>
+            <span class="service-row__toggle">+</span>
+          </summary>
+          <div class="service-row__desc">
+            <p>We'll look at how focus and your body affect your inner state, and work to reconnect you with a strength that is still there, even if it's been quiet for some time.</p>
+          </div>
+        </details>
+
+        <details class="service-row">
+          <summary>
+            <span class="service-row__num">04</span>
+            <div>
+              <h3 class="service-row__title">Building rapport with anyone</h3>
+              <p class="service-row__teaser">The quiet skill behind every strong relationship.</p>
+            </div>
+            <span class="service-row__toggle">+</span>
+          </summary>
+          <div class="service-row__desc">
+            <p>Rapport isn't just something you're born with; it's a skill you can learn. We'll explore how people truly see the world differently, and how you can bridge that gap more easily.</p>
+          </div>
+        </details>
+
+        <details class="service-row">
+          <summary>
+            <span class="service-row__num">05</span>
+            <div>
+              <h3 class="service-row__title">Communicating so people actually hear you</h3>
+              <p class="service-row__teaser">Closing the gap between what you mean and what lands.</p>
+            </div>
+            <span class="service-row__toggle">+</span>
+          </summary>
+          <div class="service-row__desc">
+            <p>We'll work on how you present yourself and your ideas, whether that's in a tough conversation, a negotiation, or just making sure the people who matter to you really understand what you're saying.</p>
+          </div>
+        </details>
+
+        <details class="service-row">
+          <summary>
+            <span class="service-row__num">06</span>
+            <div>
+              <h3 class="service-row__title">Your vision board and mission statement — made real</h3>
+              <p class="service-row__teaser">Not just something framed on a wall.</p>
+            </div>
+            <span class="service-row__toggle">+</span>
+          </summary>
+          <div class="service-row__desc">
+            <p>I'll share the simple written approach I've used for over fifteen years: naming your dreams honestly, quieting the voice that says "you can't", and focusing on the few that truly matter, so you can start taking real steps toward them.</p>
+          </div>
+        </details>
+
+        <details class="service-row">
+          <summary>
+            <span class="service-row__num">07</span>
+            <div>
+              <h3 class="service-row__title">Understanding the NLP model of the world</h3>
+              <p class="service-row__teaser">Why two people can see the same event so differently.</p>
+            </div>
+            <span class="service-row__toggle">+</span>
+          </summary>
+          <div class="service-row__desc">
+            <p>Neuro-Linguistic Programming is about how each of us creates our own map of the world, and how that map can be gently changed once we understand it. This idea is the foundation for almost everything else in coaching.</p>
+          </div>
+        </details>
+
+        <details class="service-row">
+          <summary>
+            <span class="service-row__num">08</span>
+            <div>
+              <h3 class="service-row__title">Realigning your values and beliefs</h3>
+              <p class="service-row__teaser">Doing "all the right things" and still feeling off.</p>
+            </div>
+            <span class="service-row__toggle">+</span>
+          </summary>
+          <div class="service-row__desc">
+            <p>Often, the goal itself isn't wrong. It's just that a belief underneath it is pulling you in another direction. We'll find out what's really driving your choices, and where it doesn't match who you want to become.</p>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- STORY / ABOUT -->
+  <section id="about" class="story">
+    <div class="container story__inner">
+      <div>
+        <div class="story__portrait-frame">
+          <img src="images/dr-paul-portrait.jpg" alt="Portrait of Dr Paul CL Chan (H.C)" loading="lazy" />
+        </div>
+        <p class="story__location">Kuala Lumpur, Malaysia</p>
+      </div>
+      <div>
+        <p class="eyebrow">About Dr Paul</p>
+        <h2 class="story__title">I've spent thirty years working with both the people who lead and those who quietly keep everything running.</h2>
+        <p class="story__paragraph">
+          Before coaching, I spent eighteen years in international banking — operations, sales,
+          customer service, and eventually human resources — and become Head of Learning
+          &amp; Development at a foreign bank. For more than 12 years and since, I've run PAW
+          Training and Consultancy, and I'm a major partner at Cornerstone Corporate Training
+          and Consulting Sdn Bhd.
+        </p>
+        <p class="story__paragraph">
+          Along the way, I've trained thousands of people, from CEOs and senior executives to individuals just trying to find their footing again. I keep coming back to the same belief: real change happens beneath the surface, in the values and beliefs that quietly shape everything we do. That's the depth I aim for with everyone I work with.
+        </p>
+        <a href="mailto:paw.training@gmail.com" class="story__email">paw.training@gmail.com</a>
+      </div>
+    </div>
+
+    <div class="container">
+      <details class="creds">
+        <summary>
+          <span>Credentials &amp; Certifications</span>
+          <span class="creds__toggle-icon">+</span>
+        </summary>
+        <ul class="creds__list">
+          <li class="creds__item">Honorary Doctorate — Dunster Business School</li>
+          <li class="creds__item">MBA, Universiti Malaya</li>
+          <li class="creds__item">BEA (Hons), UUM</li>
+          <li class="creds__item">NLP Master Practitioner (ABNLP Triple Certification)</li>
+          <li class="creds__item">Certified Hypnotherapy Practitioner (ABH)</li>
+          <li class="creds__item">Professional Business Coach (PBCA)</li>
+          <li class="creds__item">MBTI Certified</li>
+          <li class="creds__item">SHL Certified</li>
+          <li class="creds__item">DISC Certified</li>
+          <li class="creds__item">BEi Certified</li>
+        </ul>
+      </details>
+    </div>
+  </section>
+
+  <!-- APPROACH -->
+  <section id="approach" class="approach">
+    <div class="container">
+      <p class="eyebrow on-dark">A word on how I work</p>
+      <h2 class="approach__title">Real change rarely happens on the surface. We'll go as deep as you're ready to go.</h2>
+      <p class="approach__text">
+        My approach uses Neuro-Linguistic Programming, work on values and beliefs, and, when it truly helps, hypnotherapy techniques that I'm certified in. None of this is about tricks or quick fixes. It's about understanding how your mind already works, so the changes we make together really last.
+      </p>
+      <p class="approach__note">
+        Anything we explore together, including any technique such as hypnotherapy, is always explained beforehand and used only with your full understanding and consent. This is your process, at your pace.
+      </p>
+    </div>
+  </section>
+
+  <!-- ONLINE COURSES CALLOUT -->
+  <section id="courses" class="courses">
+    <div class="container courses__inner">
+      <div>
+        <p class="eyebrow">For your own toolkit, at your own pace</p>
+        <h2 class="courses__title">Prefer to learn in your own time? I've put together courses for that too.</h2>
+        <p class="courses__text">
+          Coaching is one way I work with people — but not everyone wants a conversation to
+          start with. Through PawL.earning, I've built a growing library of self-paced online
+          courses drawn from the same three decades in banking, credit, and corporate training:
+          practical, focused, and yours to work through whenever it suits you, with no
+          scheduling required.
+        </p>
+        <p class="courses__meta">pawlearning.cc — part of Cornerstone Corporate Training &amp; Consultancy</p>
+      </div>
+      <div>
+        <a href="https://pawlearning.cc/" target="_blank" rel="noopener" class="btn btn--amber">
+          Explore the Courses ↗
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIAL -->
+  <section class="testimonial">
+    <div class="container testimonial__inner">
+      <p class="eyebrow">In their words</p>
+      <p class="testimonial__quote">
+        "Replace this with a real client's own words, once Dr Paul has one he's comfortable
+        sharing publicly — ideally the moment something genuinely shifted for them."
+      </p>
+      <p class="testimonial__attribution">— Placeholder, a client Dr Paul walked alongside</p>
+      <p class="testimonial__note">(Swap in a real testimonial before launch)</p>
+    </div>
+  </section>
+
+  <!-- BOOKING -->
+  <section id="booking" class="booking">
+    <div class="container booking__inner">
+      <div>
+        <p class="eyebrow">Start here, gently</p>
+        <h2 class="booking__title">Schedule a confidential call.</h2>
+        <p class="booking__text">
+          Choose a time that works for you. This is a private, one-to-one conversation with Dr Paul. Nothing is discussed publicly, and there is no pressure at all.
+        </p>
+        <p class="booking__confidential">
+          Once you've spoken, Dr Paul will discuss privately with you, in person, whether and how he can help
+        </p>
+        <a href="mailto:paw.training@gmail.com" class="booking__email-fallback">
+          Prefer email? Write to paw.training@gmail.com
+        </a>
+      </div>
+      <div class="booking__widget-wrap">
+        <div
+          id="calendlyWidget"
+          class="calendly-inline-widget"
+          data-url="https://calendly.com/your-link/discovery-call"
+          style="min-width:280px; height:640px;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <div>
+      <p class="site-footer__name">Dr Paul CL Chan <span>(H.C)</span></p>
+    </div>
+    <div class="site-footer__contact">
+      <a href="mailto:paw.training@gmail.com">paw.training@gmail.com</a>
+      <span>Kuala Lumpur, Malaysia</span>
+      <a href="https://pawlearning.cc/" target="_blank" rel="noopener">pawlearning.cc</a>
+    </div>
+  </div>
+  <div class="container">
+    <p class="site-footer__legal">© <span id="year"></span> Dr Paul CL Chan (H.C). All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
